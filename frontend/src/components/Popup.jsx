@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 
 const Popup = ({ message }) => {
-    const navigate = useNavigate(); // Inisialisasi useNavigate
+    const navigate = useNavigate();
 
     const handleOkClick = () => {
-        navigate("/"); // Melakukan navigasi ke '/'
+        navigate("/");
     };
 
     return (
