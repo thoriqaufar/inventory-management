@@ -43,6 +43,10 @@ export default function DefaultLayout() {
                             {" "}
                             Products
                         </a>
+                        <a href="/product-list" className="btn-logout">
+                            {" "}
+                            Product List
+                        </a>
                         <a href="#" onClick={onLogout} className="btn-logout">
                             {" "}
                             Logout
@@ -50,7 +54,7 @@ export default function DefaultLayout() {
                     </div>
                 </header>
                 <main>
-                    <Outlet />
+                    <Outlet/>
                 </main>
             </div>
         </div>

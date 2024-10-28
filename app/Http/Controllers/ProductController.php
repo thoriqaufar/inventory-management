@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Http\Resources\ProductResource;
+use App\Http\Resources\ProductResourceJoin;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -35,6 +37,27 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        return new ProductResource($product);
+    }
+
+    public function indexDetail()
+    {
+        $products = DB::table('products as p')
+            ->leftJoin('discount_product as dp', 'p.id', '=', 'dp.id_product')
+            ->select('p.*', 'dp.discount', 'dp.date_started', 'dp.date_ended')
+            ->get();
+
+        return ProductResource::collection($products);
+    }
+
+    public function detail(string $id)
+    {
+        $product = DB::table('products as p')
+            ->leftJoin('discount_product as dp', 'p.id', '=', 'dp.id_product')
+            ->select('p.*', 'dp.discount', 'dp.date_started', 'dp.date_ended')
+            ->where('p.id', $id)
+            ->first();
+
         return new ProductResource($product);
     }
 

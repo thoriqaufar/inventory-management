@@ -30,5 +30,11 @@ class ProductSeeder extends Seeder
             'stock' => '180',
             'price' => '7000'
         ]);
+
+        Product::create([
+            'name' => 'Product D',
+            'stock' => '10',
+            'price' => '8500'
+        ]);
     }
 }

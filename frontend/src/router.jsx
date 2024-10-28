@@ -7,6 +7,9 @@ import UserForm from "./views/UserForm.jsx";
 import Products from "./views/Products.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import ProductForm from "./views/ProductForm.jsx";
+import DetailProduct from "./views/DetailProduct.jsx";
+import ProductList from "./views/ProductList.jsx";
+import PopUpProductDetail from "./views/PopUpProductDetail.jsx";
 
 const router = createBrowserRouter([
     {
@@ -52,6 +55,18 @@ const router = createBrowserRouter([
             {
                 path: "/products/:id",
                 element: <ProductForm key="productUpdate" />,
+            },
+            {
+                path: "/products/detail/:id",
+                element: <DetailProduct />,
+            },
+            {
+                path: "/product-list",
+                element: <ProductList />,
+            },
+            {
+                path: "/product-list/detail/:id",
+                element: <PopUpProductDetail />,
             },
         ],
     },
