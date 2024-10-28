@@ -6,6 +6,7 @@ import {
     MDBCardBody,
     MDBCardImage,
     MDBCardTitle,
+    MDBBtn,
 } from "mdb-react-ui-kit";
 import "./ecommerce-category-product.css";
 import { useParams } from "react-router-dom";
@@ -111,6 +112,7 @@ export default function PopUpProductDetail() {
                                         )}
                                     </div>
                                 </MDBCardBody>
+                                <MDBBtn href={"/product-list"}>Back</MDBBtn>
                             </MDBCard>
                         </>
                     )}
